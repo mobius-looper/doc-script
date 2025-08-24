@@ -1,0 +1,25 @@
+theme = 'hugo-theme-relearn'
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Mobius Scripting'
+[params]
+collapsibleMenu = true
+#themeVariant='neon'
+
+[menu]
+    
+  [[menu.shortcuts]]
+    name = 'Main Documentation'
+    url = 'https://mobius-looper.github.io/doc-main'
+    weight = 1
+
+  [[menu.shortcuts]]
+    name = 'User Forum'
+    url = 'https://mobiuslooper.com/forum/public'
+    weight = 2
+    
+  [[menu.shortcuts]]
+    name = 'Github Repository'
+    url = 'https://github.com/mobius-looper/doc-script'
+    weight = 3
+    
