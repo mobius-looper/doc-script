@@ -1,5 +1,5 @@
 +++
-title = "Example 1: Hello World"
+title = "1: Hello World"
 +++
 
 Whether you write your own scripts, or get them from somone else, you will need to understand

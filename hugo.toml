@@ -12,14 +12,24 @@ collapsibleMenu = true
     name = 'Main Documentation'
     url = 'https://mobius-looper.github.io/doc-main'
     weight = 1
+    
+  [[menu.shortcuts]]
+    name = 'Cookbook'
+    url = 'https://mobius-looper.github.io/doc-cookbook'
+    weight = 2
+
+  [[menu.shortcuts]]
+    name = 'Reference'
+    url = 'https://mobius-looper.github.io/doc-reference'
+    weight = 3
 
   [[menu.shortcuts]]
     name = 'User Forum'
     url = 'https://mobiuslooper.com/forum/public'
-    weight = 2
+    weight = 4
     
   [[menu.shortcuts]]
     name = 'Github Repository'
     url = 'https://github.com/mobius-looper/doc-script'
-    weight = 3
+    weight = 5
     
