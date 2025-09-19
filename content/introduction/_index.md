@@ -21,10 +21,4 @@ Scripts are short text files containing instructions for Mobius to follow.  Thes
 
 
 
-
-
-
-
-
-
-
+See [File Management]({{< relref "../files" >}}) for more.
