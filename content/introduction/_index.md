@@ -19,6 +19,6 @@ Scripts are short text files containing instructions for Mobius to follow.  Thes
 
 ### Where Are Scripts?
 
+See [File Management]({{% relref "../files/#Section-3" %}}) for more.
 
-
-See [File Management]({{< relref "../files" >}}) for more.
+See [This Thing]({{% relref "../introduction/example1/#xxx" %}}) for something else.
