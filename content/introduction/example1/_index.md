@@ -32,7 +32,7 @@ At this point, you should see a standard file saving dialog window pop up.  Ther
 
 ### Bindings
 
-To use the script, you must now create a *binding*.  Scripts will almost always be used with MIDI bindings, for for examples and testing, I like to use UI Buttons.  From the top menu select *Display* then *Edit Buttons*.   In the target tree open the *Scripts* item and look through the sub-items for one that has the name of the file you entered in the script editor.  Click and hold the mouse over this name, and drag it onto the table on the right.  Finally, click Save on the button editor popup window.  You should now see a button at the top of the UI with the name *HelloWorld* (or whatever file name you entered).
+To use the script, you must now create a *binding*.  Scripts will almost always be used with MIDI bindings, but for examples and testing, I like to use UI Buttons.  From the top menu select *Display* then *Edit Buttons*.   In the target tree open the *Scripts* item and look through the sub-items for one that has the name of the file you entered in the script editor.  Click and hold the mouse over this name, and drag it onto the table on the right.  Finally, click Save on the button editor popup window.  You should now see a button at the top of the UI with the name *HelloWorld* (or whatever file name you entered).
 
 ### The Console
 
@@ -41,4 +41,97 @@ You will notice that when you click this button nothing happens.  Messages from 
 Return to the *Script Editor* window and change the text between the two double quotes, then click Save.   When you click the HelloWorld button you should now see the modified message in the console.
 
 When a script is finished and working properly it will usually not contain any *print* statements.  It does what it does silently.  But if the script isn't doing what you think it should, using *print* with the console can help you understand what is going wrong.
+
+### More Fun With Print
+
+This simple script contains a single line.  The first part is the word *print* which is the name of a built-in function.  The second part is a text string surrounded by double quotes, this is called the *argument* to the function.  The *print* function will take whatever it is given as an argument and display it in the console window.
+
+A sequence of characters surrounded by double quotes is called a *literal string* or simply a *string*.  It is *literal* because exactly this sequence of characters is what will be displayed.
+
+If you forgot the quotes and did this instead:
+
+```
+print Hello World!
+```
+
+You would see errors when you compile the script.  This is because words that are not surrounded by quotes are called *symbols*.  When *print* is given an argument that is a symbol, it will display the *value* of the symbol, not the symbol name.  Since there is nothing in the system with the name *Hello*, the symbol is *unresolved* and will cause an error. 
+
+There are many symbols defined in Mobius that you can reference in a script.  All configuration parameters you can set in the *Session Editor* are accessible as script symbols.  There are also many *system variables* that hold information about what Mobius is doing when the script runs.  Here's a simple example:
+
+```
+print trackNumber
+```
+
+*trackNumber* is the name of a system variable whose value is the number of the active track.  The active track (sometimes called the *focused* track) is the one that has a white box drawn around it in the UI.  Change the example script we've been working on and replace *"Hello World!"* with *trackNumber* and run the script.  You should see a number being added to the console window.  Now click on a different track to make it active and run the script again, the script will print a different number in the console.
+
+As you start writing more complex scripts, you might have several things you want to print and just seeing raw numbers in the console can be confusing.  You can combine variable values with literal text to add more context to your console messages.
+
+```
+print "I am in track"
+print trackNumber
+```
+
+Assuming the first track is active, this would display
+
+```
+I am in track
+1
+```
+
+That's all well and good, but it would look nicer if the text and the number were displayed on the same line.  Let's improve the script like this:
+
+```
+print ("I am in track" trackNumber)
+```
+
+Note the addition of the parenthesis around the two things we want to print.   This is an *argument block*.   Argument blocks are used when you need to pass more than one thing to a function.  The *print* function will accept any number of arguments, it will merge them all into a single line of text and display the result.  Now the script will display this in the console:
+
+```
+I am in track 1
+```
+
+Here is a longer argument block containing four things to say:
+
+```
+print ("I am in track" trackNumber "and the loop mode is" mode)
+```
+
+### Why Would I Want Any Of this?
+
+As you start writing more complex scripts, it is easy to misspell a name or make an error that
+causes the script to either not do anything, or do something you don't expect.  Putting *print*
+statements in between the lines of your script can help you see what decisions the script is making
+when it runs.
+
+If you don't see any *print* results in the console, it could mean that the binding is wrong, or the script file was moved or deleted accidentally.
+
+Among programmers, using *print* statements like this is called "debug logging" and is a common
+technique to find problems in a program.  One day Mobius may have fancy debugging tools like the
+grown up languages use, but until then, *print* is your friend.
+
+Debugging techniques are discussed in more detail in later chapters.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
