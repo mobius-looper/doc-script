@@ -121,12 +121,12 @@ Even non-programmers should be familar with basic math expressions like this:
    volume = 11
 ```
 
-The characters <code>+</code>, <code>/</code>, and <code>=</code> are called *operators*.  They are special punctuation characters you combine with numbers and symbols to form *expressions*.
+The characters ```+```, ```/```, and ```=``` are called *operators*.  They are special punctuation characters you combine with numbers and symbols to form *expressions*.
 
 To avoid writing paragraphs about expression syntax, I'm going to assume everyone is familar with
-basic high school math and will understand things like *operator precedence* and the use of *parenthesis*.  I'll only say that MSL does math expressions like pretty much all other languages, using <code>+=*/</code> operators, numbers, and variable names.
+basic high school math and will understand things like *operator precedence* and the use of *parenthesis*.  I'll only say that MSL does math expressions like pretty much all other languages, using ```+-*/=``` operators, numbers, and variable names.
 
-Logic expressions may be less familar to non-programmers, but are still commonly known.  Like most languages, MSL uses <code>||</code>, <code>&&</code> and <code>==</code>, but it also allows the more readable words *or* and *and* and *equals*.
+Logic expressions may be less familar to non-programmers, but are still commonly known.  Like most languages, MSL uses ```||```, ```&&``` and ```==```, but it also allows the more readable words ```or``` and ```and``` and ```equals```.
 
 Some examples of logic expressions:
 ```plaintext
@@ -136,9 +136,9 @@ Some examples of logic expressions:
   mode equals "Record" or mode equals "Reset"
 ```
 
-Now we get to what is often a hard thing for non-programmers to understand.  What is up with that double <code>==</code> to mean *equals*.   Why can't I just write single <code>=</code> like you see in math books?
+Now we get to what is often a hard thing for non-programmers to understand.  What is up with that double ```==``` to mean *equals*.   Why can't I just write single ```=``` like you see in math books?
 
-The reason is because in almost all programming languages, the single <code>=</code> character means **assignment of a value** not **comparison to a value**.  So this...
+The reason is because in almost all programming languages, the single ```=``` character means **assignment of a value** not **comparison to a value**.  So this...
 
 ```plaintext
   output == 127
@@ -152,7 +152,7 @@ The reason is because in almost all programming languages, the single <code>=</c
 
 ...is **changing** the value of the *output* variable to **be** 127.
 
-Forgetting to use <code>==</code> insteead of <code>=</code> is a common error when writing scripts, so for those new to programming I recommend you use the words <code>equal</code> or <code>equals</code> instead.  Note that either <code>equal</code> or <code>equals</code> may be used if you prefer the way one reads over the other.
+Forgetting to use ```==``` insteead of ```=``` is a common error when writing scripts, so for those new to programming I recommend you use the words **equal** or **equals** instead.  Note that either **equal** or **equals** may be used if you prefer the way one reads over the other.
 
 ### Functions
 
@@ -198,35 +198,35 @@ A more complex statement would be to make *Record* happen but only if the curren
   if mode equals "Reset" then Record
 ```
 
-A statement often begins with a keyword such as *if* and we'll refer to that as an *if statement*.  To know what the statement does, you need to understand not only what the *if* keyword means, but how all the other words after it are used.
+A statement often begins with a keyword such as **if** and we'll refer to that as an **if statement**.  To know what the statement does, you need to understand not only what the **if** keyword means, but how all the other words after it are used.
 
 This is going to sound confusing, but will become clearer as you read the examples.
 
 Statements have a beginning and an end, and it is important to understand where one statement ends and the next one begins.  Unlike other languages, line breaks are not considered *statement delimiters*.  The end of a statement is determined by whether or not it is considered *complete*, meaning it has all that it needs to do something.  To help make scripts more readable, statemments may be broken up into multiple lines with indentation.  How exactly you do this is personal preference.  Some prefer to break statements up so each component is on it's own line, and others prefer short scripts with as much on one line as possible.  
 
-This is is an example <code>if</code> statement spread over several lines:
+This is is an example **if** statement spread over several lines:
 
 ```plaintext
-  if mode equals Reset
+  if mode equals "Reset"
      Record
-  else if mode equals Record
+  else if mode equals "Record"
      Overdub
 ```
 
 This is the same statement all on one line.
 
 ```plaintext
-  if mode equals Reset Record else if mode equals Record Overdub
+  if mode equals "Reset" Record else if mode equals "Record" Overdub
 ```
 
 ### Blocks
 
-Often you need to group together several statements so they are all evaluated one after the other.  This is especially common when using the <code>if</code> statement.  Blocks are written using a pair of punctaion characters, the ones you will see most often are curly braces <code>{ }</code> and parenthesis <code>( )</code>.
+Often you need to group together several statements so they are all evaluated one after the other.  This is especially common when using the **if** statement.  Blocks are written using a pair of punctaion characters, the ones you will see most often are curly braces ```{ }``` and parenthesis ```( )```.
 
-This is an example of a *code block* within an <code>if</code> statement.
+This is an example of a *code block* within an **if** statement.
 
 ```plaintext
-  if mode equals Reset {
+  if mode equals "Reset" {
      Record
      Reverse
   }     
@@ -248,7 +248,7 @@ and the function *SelectTrack* uses that to know which track you want to select.
 ### Comments
 
 A *comment* is a free-form line of text that you may include in the script to provide
-documentation, or point out something that readers of the script need to know.  Within any line of text, if you write two forward shash characters <code>//</code> then all text after those characters on the same line are ignored.
+documentation, or point out something that readers of the script need to know.  Within any line of text, if you write two forward shash characters **//** then all text after those characters on the same line are ignored.
 
 ```plaintext
 //
@@ -258,17 +258,17 @@ documentation, or point out something that readers of the script need to know.  
 Record
 ```
 
-An entire line may be a comment, but you can also put comments on the same line as other statements.
+An entire line may be a comment, but you can also put comments on the end of a line containing a statement.
 
 ```plaintext
 SelectTrack(3) // this will select track number 3
 ```
 
-The previous script will run the function *SelectTrack* and pass it the argument number 3, but everything after the <code>//</code> is ignored.
+The previous script will run the function *SelectTrack* and pass it the argument number 3, but everything after the **//** is ignored.
 
 ### Declarations
 
-A *declaration* is used to tell the script interpreter things about how the script should be used.  They are not *statements* that cause things to happen, they just tell the system interesting things about what the script will do and how it should be shown in the UI.  Declarations start with the <code>#</code> character and are followed by a name.  The one you will see frequently is this.
+A *declaration* is used to tell the script interpreter things about how the script should be used.  They are not *statements* that cause things to happen, they just tell the system interesting things about what the script will do and how it should be shown in the UI.  Declarations start with the **#** character and are followed by a name.  The one you will see frequently is this.
 
 ```plaintext
   #name Track3
@@ -276,9 +276,76 @@ A *declaration* is used to tell the script interpreter things about how the scri
   SelectTrack(3)
 ```
 
-The <code>#name</code> declaration is used to give the script a name that you want to see when you create a binding or a UI button.   If #name is not inccluded, then the name of the script will be the name of the file containing the script which is sometimes not what you want to see.   Using #name allows you to choose any name you want for the script.
+The **#name** declaration is used to give the script a name that you want to see when you create a binding or a UI button.   If #name is not inccluded, then the name of the script will be the name of the file containing the script which is sometimes not what you want to see.   Using #name allows you to choose any name you want for the script.
 
 Declarations may appear anywhere in the script, in any order, but they are usually written at the very top of the file.
 
+
+### Script Names vs. Display Names
+
+Mobius has many functions and parameters that all have a unique name.  Some examples of function names are:
+
+* Record
+* GlobalReset
+* NextLoop
+* TrackSelect
+
+Function names always begin with a capital letter, and if the function name has more than one word, the words are combined without spaces between them, and use another capital letter for the start of each word.   To use a function in a script you will type in exactly the same name that you see in the UI.
+
+Parameter names are displayed differently, they often contain more than one word that are separated by spaces.  Some examples of parameter names are:
+
+* Quantize
+* Sync Source
+* Transport Tempo
+
+In a script, you will never reference a parameter using the same name that you see in the UI.  You must reference a parameter using its *script name*.  With very few exceptions, the script name of a parameter is formed by putting all the words togeter without spaces, and making the first letter of the name **lowercase**.  The script names for the previously listed parameters are:
+
+* quantize
+* syncSource
+* transportTempo
+
+There are several reasons for this.  Most Mobius users will not be writing scripts, so when they look at parameter names in the UI, it is more readable if they are shown as spaced out capitalized words.  But this is a problem for scripts, because names of things cannot contain spaces.  So in the script you need to push all the words together.
+
+The reason the first letter of a parameter name is in lower case is to make it easier to see which names are *functions* and which names are *parameters*.    Functions will always begin with an upper case letter, and parameters will always begin with a lower case letter.
+
+### Enumerated Parameters
+
+An *enumerated parameter* is a parameter whose values are short words rather than numbers.  One such parameter is **syncSource** which may have the following values displayed in the UI.
+
+* None
+* Transport
+* Track
+* Host
+* Midi
+* Master
+
+When you compare or assign a value to an enumerated parameter you must write that
+in a script using a quoted string.
+
+```
+  syncSource = "host"
+```
+
+Also note that the enumerated parameter values follow the same conventions as parameter names, if they are displayed with more than one word, the words are combined to remove spaces, and they always begin with a lower case letter.
+
+### Keyword Symbols
+
+A *keyword symbol* is a special kind of variable whose name begins with a colon ```:``` and whose value is the same as the symbol name without the colon.  You will often see this in examples when testing the value of the **mode** variable or when assigning a value to an enumerated parameter.
+
+Here is one way to test the value of the **mode** variable:
+
+```
+  if mode == "Reset"
+```
+
+You will also see this in examples:
+
+```
+  if mode == :Reset
+```
+
+The value of the **:Reset** symbol is the string **"Reset"** so those two
+statements mean the same thing.  You can use either style, but I usually use
+keyword symbols because the read a little better than using quoted strings.
 
   

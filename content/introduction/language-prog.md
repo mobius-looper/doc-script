@@ -1,5 +1,5 @@
 +++
-title = "Language Essentials For Programmers""
+title = "Language Essentials For Programmers"
 +++
 
 If you are a programmer with experience in at least one C-like language (C, C++, Java, Javascript) this chapter will hit the language highlights as quickly and with as few words as possible.  For some, this may be all you need.  For everyone, this can serve as a quick reference once you have a better understanding of how scripts work.
@@ -80,6 +80,8 @@ outside of these statements, it is recommended that you do not use them to avoid
 * beat
 * bar
 
+asdf
+asdf
 
 
 
