@@ -18,7 +18,7 @@ In order to be selected as a periodic script in the session editor, the script m
 
 ```
 
-**NOTE:** The word "meta" will be changing in the next release to "usage".  A usage declaration (also called a *usage tag*)" is placed in a script to tell Mobius where this script is intended to be used.  If there is no usage tag, the script is assumed to be a normal action script and will be availalble for bindings.  If the usage tag is *periodic* or *event* the script will not available for bindings, but it will be selectable as a periodic or event script in the session editor.
+**NOTE:** The word "meta" will be changing in the next release to "usage".  A usage declaration (also called a *usage tag*) is placed in a script to tell Mobius where this script is intended to be used.  If there is no usage tag, the script is assumed to be a normal action script and will be availalble for bindings.  If the usage tag is *periodic* or *event* the script will not available for bindings, but it will be selectable as a periodic or event script in the session editor.
 
 The number after the *periodic* keyword defines the frequency of the script in 1/10th second units.  In this example 5 means it will run every 1/2 second.
 
